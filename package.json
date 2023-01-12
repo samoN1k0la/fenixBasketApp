@@ -1,15 +1,14 @@
 {
   "name": "fenixapp",
   "version": "1.0.0",
-  "description": "",
-  "main": "app.js",
+  "description": "CMS za potrebe Fenix Basket kluba",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "parcel index.html",
-    "build": "parcel build index.html"
+    "dev": "parcel welcomeScreen.html adminPage.html trenerPage.html",
+    "build": "parcel build welcomeScreen.html adminPage.html trenerPage.html"
   },
   "keywords": [],
-  "author": "",
+  "author": "Nikola Lukic",
   "license": "ISC",
   "dependencies": {
     "axios": "^1.2.2"
