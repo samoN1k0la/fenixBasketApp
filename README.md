@@ -13,4 +13,4 @@ Na repozitorijumu nisu:<br>
 &nbsp&nbsp&nbsp- node_modules/
 <br><br><br>
 
-Za lokalno podešavanje development environemnta, javite se meni za više informacija.
+Za lokalno podešavanje razvojnog okruženja, javite se meni za više informacija.
