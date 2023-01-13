@@ -23,13 +23,14 @@
             <input type="text" placeholder="Prezime" id="prezimeDelete" name="prezimeDelete" required><br>
             <button type="button" id="deleteTrainerButton">Izbriši iz baze</button>
          </form>
+         <span>Trenutni treneri:</span>
+         <ul id="treneriLista"></ul> <!-- Lista koja prikazuje trenutne trenere -->
          
          <!-- Kraj glavne aplikacije -->
       </div>
 
-      <script type="module" src="loginAdmin.js"></script> <!-- Login sistem -->
+      <script type="module" src="adminMain.js"></script> <!-- Login sistem + prikaz trenera -->
       <script type="module" src="addTrainer.js"></script> <!-- Sistem za dodavanje novog trenera -->
       <script type="module" src="deleteTrainer.js"></script> <!-- Sistem za brisanje trenera -->
-      <script type="module" src="showTrainers.js"></script> <!-- Skripta za prikazivanje trenera -->
    </body>
 </html>
