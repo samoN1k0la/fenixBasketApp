@@ -11,6 +11,6 @@ Potrebne dodatne biblioteke: <b>axios</b>, <b>parcel</b>
 Na repozitorijumu nisu:<br>
 &nbsp&nbsp&nbsp- dist/<br>
 &nbsp&nbsp&nbsp- node_modules/
-
+<br><br><br>
 
 Za lokalno podešavanje development environemnta, javite se meni za više informacija.
