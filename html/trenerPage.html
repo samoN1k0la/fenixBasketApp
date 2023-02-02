@@ -1,12 +1,41 @@
+<!DOCTYPE html>
 <html>
+   <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Fenix | Trener</title>
+      <link rel="stylesheet" href="./trenerStyle.css">
+
+      <!-- Font awesome Kit -->
+      <script src="https://kit.fontawesome.com/e6faf962d9.js" crossorigin="anonymous"></script>
+   </head>
    <body>
-      <form id="input-form">
-         <input type="password" placeholder="Šifra" id="password" name="password" required><br>
-         <button type="button" id="loginButton">Prijavi se</button>
-      </form>
+      <div id="login-container">
+         <span>
+            <a href="http://localhost:1234/welcomeScreen.html">
+               <i class="fa-solid fa-circle-chevron-left"></i>
+            </a>
+            <a href="http://localhost:1234/welcomeScreen.html">
+               <span>Vrati se na početnu stranicu</span>
+            </a>
+         </span>
+         <div id="input-form">
+            <form>
+               <input type="password" placeholder="Šifra" id="password" name="password" required><br>
+               <div id="submit-container">
+                  <button type="button" id="loginButton">Prijavi se</button>
+               </div>
+            </form>
+         </div>
+      </div>
       <div id="container">
+         <!-- Glavna aplikacija -->
+
          <h1>Dobrodošli</h1>
          <p>Prijavljeni ste kao: trener</p>
+
+         <!-- Kraj glavne aplikacije -->
       </div>
 
       <script type="module" src="loginTrener.js"></script>
