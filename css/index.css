@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     font-family: Arial;
+    box-sizing: border-box;
 }
 
 a {
@@ -51,4 +52,63 @@ a {
 #left-container-image img {
     width: 20%;
     border-radius: 140em;
+}
+
+#right-container {
+    position: relative;
+    padding-top: 2em;
+    text-align: center;
+}
+
+#right-container>span {
+    font-size: 2em;
+    letter-spacing: 0.2em;
+    font-weight: bold;
+    color: rgb(59,27,53);
+}
+
+#login-buttons {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: 100%;
+    font-size: 2em;
+}
+
+#login-buttons>a {
+    border-radius: 100em;
+    padding: 2em;
+    border: 3px solid rgb(59,27,53);
+    text-align: center;
+    line-height: 2em;
+    margin-right: 1em; 
+    margin-left: 1em;
+
+}
+
+#login-buttons>a:hover {
+    background-color: rgb(59,27,53);
+    color: white;
+}
+
+footer {
+    position: absolute;
+    width: 100%;
+    background-color: rgb(26,26,26);
+    color: white;
+    bottom: 0;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    text-align: center;
+}
+
+footer span a {
+    color: white;
+    font-weight: bold;
+}
+
+footer span a:hover {
+    text-decoration: underline;
 }
