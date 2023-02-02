@@ -28,7 +28,7 @@ const gatherTrainers = async () => {
 // Funkcija se koristi za sakrivanje LOGIN forme
 document.getElementById("container").style.display = 'none';
 const hideForm = async () => {
-    document.getElementById("input-form").style.display = 'none';
+    document.getElementById("login-container").style.display = 'none';
     document.getElementById("container").style.display = 'block';
 };
 

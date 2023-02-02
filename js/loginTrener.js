@@ -3,7 +3,7 @@ import axios from 'axios';
 document.getElementById("container").style.display = 'none';
 
 function showContent() {
-    document.getElementById("input-form").style.display = 'none';
+    document.getElementById("login-container").style.display = 'none';
     document.getElementById("container").style.display = 'block';
 }
 
