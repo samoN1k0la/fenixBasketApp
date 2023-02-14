@@ -85,12 +85,17 @@ a {
     line-height: 2em;
     margin-right: 1em; 
     margin-left: 1em;
-
 }
 
 #login-buttons>a:hover {
-    background-color: rgb(59,27,53);
     color: white;
+    -webkit-animation: changeBackgroundColor 1.0s forwards;
+    animation: changeBackgroundColor 1.0s forwards;
+}
+
+@keyframes changeBackgroundColor {
+    0% {background-color: white;}
+    100% {background-color: rgb(59,27,53);}
 }
 
 footer {
