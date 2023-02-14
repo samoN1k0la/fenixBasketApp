@@ -1,3 +1,9 @@
+<!--
+
+   Za dodavanje grupa: 
+   CREATE TABLE `fenixbasketlogintest`.`grupa1` (`id` SERIAL NOT NULL , `ime` TEXT NOT NULL , `prezime` TEXT NOT NULL ) ENGINE = InnoDB;   
+-->
+
 <!DOCTYPE html>
 <html>
    <head>
@@ -42,20 +48,114 @@
             <input type="text" placeholder="Datum Rođenja (DD.MM.GGGG)" id="datumRodj" name="datumRodj" required><br>
             <button type="button" id="createTrainerButton">Unesi u bazu</button>
          </form>
+         <br><br>
          <form> <!-- Brisanje trenera -->
             <span>Obrišite trenera:</span><br>
             <input type="text" placeholder="Ime" id="imeDelete" name="imeDelete" required>
             <input type="text" placeholder="Prezime" id="prezimeDelete" name="prezimeDelete" required><br>
             <button type="button" id="deleteTrainerButton">Izbriši iz baze</button>
          </form>
+         <br><br>
+         <form> <!-- Dodavanje grupe -->
+            <span>Kreirajte novu grupu:</span><br>
+            <input type="text" placeholder="Naziv grupe" id="groupName" name="groupName" required><br><br>
+            
+            <span>Termini treninga:</span>
+            <br>
+            <div>
+               <div>
+                  <label>PONEDJELJAK:</label><br>
+                  <input type="checkbox" id="pon-datum1" name="pon-datum1" value="pon-datum1" class="grupaTermin">
+                  <label >17:15 - 18:15</label><br>
+                  <input type="checkbox" id="pon-datum2" name="pon-datum2" value="pon-datum2" class="grupaTermin">
+                  <label >18:15 - 19:15</label><br>
+                  <input type="checkbox" id="pon-datum3" name="pon-datum3" value="pon-datum3" class="grupaTermin">
+                  <label >19:15 - 20:15</label><br><br>
+               </div>
+               <div>
+                  <label>UTORAK:</label><br>
+                  <input type="checkbox" id="uto-datum1" name="uto-datum1" value="uto-datum1" class="grupaTermin">
+                  <label >17:15 - 18:15</label><br>
+                  <input type="checkbox" id="uto-datum2" name="uto-datum2" value="uto-datum2" class="grupaTermin">
+                  <label >18:15 - 19:15</label><br>
+                  <input type="checkbox" id="uto-datum3" name="uto-datum3" value="uto-datum3" class="grupaTermin">
+                  <label >19:15 - 20:15</label><br><br>
+               </div>
+               <div>
+                  <label>SRIJEDA:</label><br>
+                  <input type="checkbox" id="sre-datum1" name="sre-datum1" value="sre-datum1" class="grupaTermin">
+                  <label >17:15 - 18:15</label><br>
+                  <input type="checkbox" id="sre-datum2" name="sre-datum2" value="sre-datum2" class="grupaTermin">
+                  <label >18:15 - 19:15</label><br>
+                  <input type="checkbox" id="sre-datum3" name="sre-datum3" value="sre-datum3" class="grupaTermin">
+                  <label >19:15 - 20:15</label><br><br>
+               </div>
+               <div>
+                  <label>ČETVRTAK:</label><br>
+                  <input type="checkbox" id="cet-datum1" name="cet-datum1" value="cet-datum1" class="grupaTermin">
+                  <label >17:15 - 18:15</label><br>
+                  <input type="checkbox" id="cet-datum2" name="cet-datum2" value="cet-datum2" class="grupaTermin">
+                  <label >18:15 - 19:15</label><br>
+                  <input type="checkbox" id="cet-datum3" name="cet-datum3" value="cet-datum3" class="grupaTermin">
+                  <label >19:15 - 20:15</label><br><br>
+               </div>
+               <div>
+                  <label>PETAK:</label><br>
+                  <input type="checkbox" id="pet-datum1" name="pet-datum1" value="pet-datum1" class="grupaTermin">
+                  <label >17:15 - 18:15</label><br>
+                  <input type="checkbox" id="pet-datum2" name="pet-datum2" value="pet-datum2" class="grupaTermin">
+                  <label >18:15 - 19:15</label><br>
+                  <input type="checkbox" id="pet-datum3" name="pet-datum3" value="pet-datum3" class="grupaTermin">
+                  <label >19:15 - 20:15</label><br><br>
+               </div>
+               <div>
+                  <label>SUBOTA:</label><br>
+                  <input type="checkbox" id="sub-datum1" name="sub-datum1" value="sub-datum1" class="grupaTermin">
+                  <label >10:00 - 11:00</label><br>
+                  <input type="checkbox" id="sub-datum2" name="sub-datum2" value="sub-datum2" class="grupaTermin">
+                  <label >11:00 - 12:00</label><br><br>
+               </div>
+            </div>
+            <label>Izaberite trenera koji vodi grupu:</label><br>
+            <select name="dostupniTreneri" id="dostupniTreneri"></select><br>
+            <button type="button" id="addGroupButton">Kreiraj</button>
+         </form>
+         <br><br>
+         <form> <!-- Brisanje grupa -->
+            <span>Izbrišite grupu:</span><br>
+            <input type="text" placeholder="Naziv grupe" id="groupNameDelete" name="groupNameDelete" required><br>
+            <button type="button" id="deleteGroupButton">Izbriši</button>
+         </form>
+         <br><br>
+         <form> <!-- Dodavanje članova -->
+            <span>Dodajte novog člana:</span><br>
+            <input type="text" placeholder="Ime" id="imeClan" name="imeClan" required>
+            <input type="text" placeholder="Prezime" id="prezimeClan" name="prezimeClan" required><br>
+            <input type="text" placeholder="Datum Rođenja (DD.MM.GGGG)" id="datumRodjClan" name="datumRodjClan" required><br>
+            <label>Dodijelite mu grupu:</label>
+            <select name="dostupneGrupe" id="dostupneGrupe"></select><br>
+            <button type="button" id="addKidButton">Unesi u bazu</button>
+         </form>
+
+         <br><br><br>
          <span>Trenutni treneri:</span>
          <ul id="treneriLista"></ul> <!-- Lista koja prikazuje trenutne trenere -->
+         <br>
+         <span>Trenutne grupe:</span>
+         <ul id="grupeLista"></ul> <!-- Lista koja prikazuje trenutne grupe i članove u njima -->
+         <br>
+         <span>Lista svih članova:</span>
+         <ul id="sviClanovi"></ul> <!-- Lista koja prikazuje sve trenutne članove -->
          
          <!-- Kraj glavne aplikacije -->
       </div>
 
-      <script type="module" src="adminMain.js"></script> <!-- Login sistem + prikaz trenera -->
+      <script type="module" src="adminMain.js"></script> <!-- Glavna admin skripta (Login, prikazivanje po listama) -->
       <script type="module" src="addTrainer.js"></script> <!-- Sistem za dodavanje novog trenera -->
       <script type="module" src="deleteTrainer.js"></script> <!-- Sistem za brisanje trenera -->
+      <script type="module" src="addGroup.js"></script> <!-- Sistem za dodavanje grupa -->
+      <script type="module" src="deleteGroup.js"></script> <!-- Sistem za brisanje grupa -->
+      <script type="module" src="addKid.js"></script> <!-- Sistem za dodavanje članova -->
+      <script type="module" src="deleteKid.js"></script> <!-- Sistem za brisanje članova -->
    </body>
 </html>
