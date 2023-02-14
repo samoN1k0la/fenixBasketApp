@@ -5,10 +5,16 @@ import axios from 'axios';
 // Funkcija za prikaz trenutnih trenera
 function showTrainers(responseData) {
     let text = "";
-    for (let i = 0; i < responseData.length ;i++) {
+    for (let i = 0; i < responseData.length; i++) {
         text += "<li>" + responseData[i].ime + " " + responseData[i].prezime + "</li>";
     }
     document.getElementById("treneriLista").innerHTML = text;
+
+    let selectElement = "";
+    for(let i = 0; i < responseData.length; i++) {
+        selectElement += '<option value=' + responseData[i].ime + '>' + responseData[i].ime + " " + responseData[i].prezime + '</option>';
+    }
+    document.getElementById("dostupniTreneri").innerHTML = selectElement;
 }
 
 // Funkcija se koristi za dobijanje liste trenutnih trenera iz baze podataka

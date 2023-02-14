@@ -1,40 +1,5 @@
 import axios from 'axios';
 
-// =========================================[ PRIKAZ TRENERA ]==========================//
-
-// Funkcija za prikaz trenutnih trenera
-function showTrainers(responseData) {
-    let text = "";
-    for (let i = 0; i < responseData.length; i++) {
-        text += "<li>" + responseData[i].ime + " " + responseData[i].prezime + "</li>";
-    }
-    document.getElementById("treneriLista").innerHTML = text;
-
-    let selectElement = "";
-    for(let i = 0; i < responseData.length; i++) {
-        selectElement += '<option value=' + responseData[i].ime + '>' + responseData[i].ime + " " + responseData[i].prezime + '</option>';
-    }
-    document.getElementById("dostupniTreneri").innerHTML = selectElement;
-}
-
-// Funkcija se koristi za dobijanje liste trenutnih trenera iz baze podataka
-const gatherTrainers = async () => {
-    axios.post(
-        "http://localhost/fenixBasket/showTrainers.php",
-        JSON.stringify({
-            reason: 'reason'
-        })
-    )
-    .then((response) => {
-        showTrainers(response.data);
-    })
-    .catch((err) => {
-        console.log(err);
-    })
-};
-// ==========================================================================================//
-
-
 // =========================================[ PRIKAZ GRUPA ]==========================//
 
 const gatherKidsForGroup = async (groupName) => {
@@ -123,51 +88,51 @@ const gatherKids = async () => {
 };
 // ==========================================================================================//
 
-
-// Funkcija se koristi za sakrivanje LOGIN forme
-document.getElementById("container").style.display = 'none';
-const hideForm = async () => {
-    document.getElementById("login-container").style.display = 'none';
-    document.getElementById("container").style.display = 'block';
-};
-
-// Handler asinhrone funkcije za prikaz dashboard-a na adminPage.html
-function showContent() {
-    hideForm()
-        .then(() => {
-            setTimeout(function() {
-                gatherTrainers();
-                gatherGroups();
-                gatherKids();
-            }, 500);
-        })
-        .catch((error) => console.log(error));
-}
-
-// Async function used for sending form data to the API
-const authenticate = async (password) => {
+const sendDeletionRequest = async (ime, prezime, datum_Rodj) => {
     axios.post(
-        "http://localhost/fenixBasket/authAdmin.php",
+        "http://localhost/fenixBasket/deleteKid.php",
         JSON.stringify({
-            password: password
+            ime: ime,
+            prezime: prezime,
+            datum_Rodj: datum_Rodj
         })
     )
     .then((response) => {
-        if(response.data.result == "nalog_ne_postoji")
-            alert("Netačna šifra!");
-        else {
-            showContent();
-        }
+        if(response.data.flag == "success")
+            alert("Uspješno izbrisan član!");
+        else
+            alert("Neobrađena greška!");
     })
     .catch((err) => {
         console.log(err);
     })
 };
 
-function submitData()  {
-    let password = document.getElementById("password").value;
-    authenticate(password);
+
+const deletionActionHandler = (buttonID) => {
+    const buttonIDsplitted = buttonID.split("_");
+    let ime = buttonIDsplitted[0];
+    let prezime = buttonIDsplitted[1];
+    let datum_Rodj = buttonIDsplitted[2];
+
+    sendDeletionRequest(ime, prezime, datum_Rodj)
+        .then(() => {
+            setTimeout(function() {
+                gatherGroups();
+                gatherKids();
+            }, 1000);
+        })
+        .catch((error) => console.log(error));
+};
+
+function listEventFire() {
+    const deleteButtons = document.querySelectorAll("#sviClanovi button");
+    for(let i = 0; i < deleteButtons.length; i++) {
+        deleteButtons[i].addEventListener("click", function() {
+            deletionActionHandler(deleteButtons[i].id);
+        }, false);
+    }
 }
 
-
-document.getElementById("loginButton").addEventListener("click", submitData, false);
+var sviClanovi_Lista = document.getElementById("sviClanovi");
+sviClanovi_Lista.addEventListener('DOMSubtreeModified', listEventFire);
