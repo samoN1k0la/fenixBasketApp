@@ -111,3 +111,37 @@ body {
 #login-container>span>a:hover span {
     background-size: 100% 100%;
 }
+
+/* ==========================================================
+   Odavdje slijedi styling za glavnu aplikaciju koja se prikazuje
+   poslije login dialoga
+*/
+
+#title-container {
+    padding: 5px;
+    padding-left: 15px;
+    width: 100vw;
+    border-bottom: 3px solid gray;
+}
+
+.split-container {
+    height: 100%;
+    position: fixed;
+    z-index: 1;
+    overflow-x: hidden;
+    padding-top: 0px;
+    background-color: lightgray;
+    color: black;
+    padding: 15px;
+}
+
+#sidebar-container {
+    left: 0;
+    width: 17%;
+    border-right: 3px solid gray;
+}
+
+#main-content-container {
+    right: 0;
+    width: 83%;
+}
