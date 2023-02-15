@@ -34,44 +34,39 @@ const gatherKids = async () => {
 // ==========================================================================================//
 
 
-// Async function used for sending form data to the API
-const authenticate = async (ime, prezime, datumRodj, grupa) => {
-    axios.post(
-        "http://localhost/fenixBasket/addKid.php",
-        JSON.stringify({
-            ime: ime,
-            prezime: prezime,
-            datumRodj: datumRodj,
-            poslednjePlacanje: "2.13.2023.",
-            slika: "https://i.imgur.com/ibm1pI4.jpeg",
-            grupa: grupa
-        })
-    )
-    .then((response) => {
-        if(response.data.flag == "success")
-            alert("Uspješno dodat novi član!");
-        else
-            alert("Neobrađena greška!");
-    })
-    .catch((err) => {
-        console.log(err);
-    })
+const searchData = () => {
+    let kidsListContent = document.getElementById("sviClanovi").innerHTML;
+    let inputfieldData = document.getElementById("searchInputField").value;
+    
+    const kidsList_elements = kidsListContent.split("</button>");
+    for(let i = 0; i < kidsList_elements.length; i++) {
+        kidsList_elements[i] += "</button>";
+    }
+
+    for(let i = 0; i < kidsList_elements.length - 1; i++) {
+        let sameStrings = true;
+        for(let j = 0; j < inputfieldData.length; j++) {
+            if(inputfieldData[j] != kidsList_elements[i][j+4]) {
+                sameStrings = false;
+                break;
+            }
+        }
+
+        if(!sameStrings) kidsList_elements[i] = "";
+    }
+
+    document.getElementById("sviClanovi").innerHTML = "";
+    for(let i = 0; i < kidsList_elements.length - 1; i++) {
+        document.getElementById("sviClanovi").innerHTML += kidsList_elements[i];
+    }
 };
 
-function submitData()  {
-    let ime = document.getElementById("imeClan").value;
-    let prezime = document.getElementById("prezimeClan").value;
-    let datumRodj = document.getElementById("datumRodjClan").value;
-    let tempZaGrupe = document.getElementById("dostupneGrupe");
-    let grupa = tempZaGrupe.options[tempZaGrupe.selectedIndex].text;
-    authenticate(ime, prezime, datumRodj, grupa)
+document.getElementById("searchButton").addEventListener("click", function() {
+    gatherKids()
         .then(() => {
             setTimeout(function() {
-                gatherKids();
+                searchData();
             }, 500);
         })
         .catch((error) => console.log(error));
-}
-
-
-document.getElementById("addKidButton").addEventListener("click", submitData, false);
+}, false);
