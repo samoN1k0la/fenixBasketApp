@@ -44,24 +44,38 @@
             <div id="panel-links-container">
                <button type="button" id="show-trenerContainer">
                   <i class="fa-solid fa-basketball"></i>
-                  <span>Treneri</span>
+                  <span>&nbspTreneri</span>
                </button>
                <br>
                <button type="button" id="show-grupeContainer">
                   <i class="fa-solid fa-users-line"></i>
-                  <span>Grupe</span>
+                  <span>&nbspGrupe</span>
                </button>
                <br>
                <button type="button" id="show-clanoviContainer">
                   <i class="fa-solid fa-child"></i>
-                  <span>Članovi</span>
+                  <span>&nbspČlanovi</span>
                </button>
+            </div>
+            <div id="go-back-container">
+               <a href="http://localhost:1234/welcomeScreen.html">
+                  <i class="fa-solid fa-circle-chevron-left"></i>
+               </a>
+               <a href="http://localhost:1234/welcomeScreen.html">
+                  <span>Vrati se nazad</span>
+               </a>
             </div>
          </div>
 
          <div id="main-content-container" class="split-container">
+            <!-- Dashboard panel -->
+            <div id="dashboard-panel">
+               <h1>Dobrodošli na admin panel</h1>
+               <span>Molimo vas, izaberite panel da biste započeli sa radom!</span>
+            </div>
+
             <!-- Trener management panel -->
-            <div id="trener-container">
+            <div id="treneri-container">
                <form> <!-- Dodavanje novog trenera -->
                   <span>Unesite novog trenera:</span><br>
                   <input type="text" placeholder="Ime" id="ime" name="ime" required>
@@ -155,7 +169,7 @@
             </div>
 
             <!-- Članovi management panel -->
-            <div>
+            <div id="clanovi-container">
                <form> <!-- Dodavanje članova -->
                   <span>Dodajte novog člana:</span><br>
                   <input type="text" placeholder="Ime" id="imeClan" name="imeClan" required>
