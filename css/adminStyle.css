@@ -145,3 +145,61 @@ body {
     right: 0;
     width: 83%;
 }
+
+#panel-links-container {
+    text-align: center;
+    padding-top: 2em;
+}
+
+#panel-links-container>button {
+    width: 80%;
+    height: 5em;
+    margin-bottom: 1em;
+    background-color: white;
+    font-size: 1.3em;
+    border-radius: 1em;
+    box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+}
+
+#panel-links-container>button:hover {
+    color: white;
+    -webkit-animation: changeBackgroundColor 0.5s forwards;
+    animation: changeBackgroundColor 0.5s forwards;
+}
+
+@keyframes changeBackgroundColor {
+    0% {background-color: white;}
+    100% {background-color: rgb(59,27,53);}
+}
+
+#go-back-container {
+    position: fixed;
+    bottom: 15px;
+    left: 25px;
+    height: 1em;
+}
+
+#go-back-container>a {
+    color: black;
+    text-decoration: none;
+}
+
+#go-back-container>a>span {
+    text-decoration: none;
+    background-image: linear-gradient(transparent calc(100% - 1px), black 1px);
+    background-repeat: no-repeat;
+    background-size: 0% 100%;
+    transition: background-size 0.8s;
+}
+
+#go-back-container>a>span:hover {
+    background-size: 100% 100%;
+}
+
+#go-back-container>a:first-child {
+    text-decoration: none;
+}
+
+#go-back-container>a:first-child:hover {
+    text-decoration: none;
+}
