@@ -129,7 +129,32 @@ document.getElementById("container").style.display = 'none';
 const hideForm = async () => {
     document.getElementById("login-container").style.display = 'none';
     document.getElementById("container").style.display = 'block';
+
+    document.getElementById("treneri-container").style.display = 'none';
+    document.getElementById("grupe-container").style.display = 'none';
+    document.getElementById("clanovi-container").style.display = 'none';
 };
+
+document.getElementById("show-trenerContainer").addEventListener("click", function() {
+    document.getElementById("treneri-container").style.display = 'block';
+    document.getElementById("dashboard-panel").style.display = 'none';
+    document.getElementById("grupe-container").style.display = 'none';
+    document.getElementById("clanovi-container").style.display = 'none';
+}, false);
+
+document.getElementById("show-grupeContainer").addEventListener("click", function() {
+    document.getElementById("treneri-container").style.display = 'none';
+    document.getElementById("dashboard-panel").style.display = 'none';
+    document.getElementById("grupe-container").style.display = 'block';
+    document.getElementById("clanovi-container").style.display = 'none';
+}, false);
+
+document.getElementById("show-clanoviContainer").addEventListener("click", function() {
+    document.getElementById("treneri-container").style.display = 'none';
+    document.getElementById("dashboard-panel").style.display = 'none';
+    document.getElementById("grupe-container").style.display = 'none';
+    document.getElementById("clanovi-container").style.display = 'block';
+}, false);
 
 // Handler asinhrone funkcije za prikaz dashboard-a na adminPage.html
 function showContent() {
